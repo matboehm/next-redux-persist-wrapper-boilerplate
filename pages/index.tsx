@@ -1,4 +1,23 @@
+import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {addTodo, selectAllTodos, TodoType} from "@/store/todoSlice";
+import { v4 as uuidv4 } from 'uuid';
+
 export default function Home() {
+    const dispatch = useDispatch();
+    const todos = useSelector(selectAllTodos);
+    const [todoText, setTodoText] = useState('');
+
+    const handleNewTodo = () => {
+        const todo: TodoType = {
+            id: uuidv4(),
+            text: todoText,
+            done: false,
+        }
+
+        dispatch(addTodo(todo));
+    }
+
     return (
         <>
             <h1>Next.js Redux Persist Boilerplate Demo</h1>
@@ -6,16 +25,16 @@ export default function Home() {
             <h2>ToDo List</h2>
             <label htmlFor="todo">
                 New ToDo
-                <input type="text" id="todo" name="todo"/>
+                <input type="text" id="todo" name="todo" onChange={(event) => setTodoText(event.target.value)}/>
             </label>
-            <button>Add</button>
+            <button onClick={handleNewTodo}>Add</button>
             <br/>
             <br/>
             <ul>
-                <li><label htmlFor="todo1" className="inline"><input type="checkbox" id="todo1" name="todo1" /><strong>ToDo #1</strong></label> - <a>Remove</a></li>
-                <li><label htmlFor="todo2" className="inline"><input type="checkbox" id="todo2" name="todo2" /><strong>ToDo #2</strong></label> - <a>Remove</a></li>
-                <li><label htmlFor="todo3" className="inline"><input type="checkbox" id="todo3" name="todo3" /><strong>ToDo #3</strong></label> - <a>Remove</a></li>
-            </ul>
+                { todos.map((todo) => {
+                    return <li key={todo.id}><label htmlFor={todo.id} className="inline"><input type="checkbox" id={todo.id} name={todo.id} /><strong>{todo.text}</strong></label> - <a>Remove</a></li>
+                })}
+         </ul>
         </>
     );
 }

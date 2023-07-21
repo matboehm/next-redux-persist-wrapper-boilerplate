@@ -1,21 +1,27 @@
-// pages/_app.js
 import Head from "next/head";
 import "../styles/mvp.css"
 import "../styles/globals.css";
+import {PersistGate} from "redux-persist/integration/react";
+import {AppProps} from "next/app";
+import {wrapper} from "@/store/store";
+import {Provider} from "react-redux";
 
-function MyApp({ Component, pageProps }) {
-    return (
-        <>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>Next.js Redux Persist Boilerplate</title>
-            </Head>
+export default function App({Component, ...rest}: AppProps) {
+    const {store, props} = wrapper.useWrappedStore(rest);
+    const {pageProps} = props;
 
-            <main id="main">
-                <Component {...pageProps} />
-            </main>
-        </>
-    );
+    return <>
+            <Provider store={store}>
+                <PersistGate persistor={(store as any).__persistor}>
+                    <Head>
+                        <meta name="viewport" content="width=device-width, initial-scale=1" />
+                        <title>Next.js Redux Persist Boilerplate</title>
+                    </Head>
+
+                    <main id="main">
+                        <Component {...pageProps} />
+                    </main>
+                </PersistGate>
+            </Provider>
+    </>
 }
-
-export default MyApp;
