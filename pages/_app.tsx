@@ -1,7 +1,7 @@
 // pages/_app.js
 import Head from "next/head";
-import "../styles/globals.css";
 import "../styles/mvp.css"
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
     return (

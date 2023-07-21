@@ -12,9 +12,9 @@ export default function Home() {
             <br/>
             <br/>
             <ul>
-                <li><strong>ToDo #1</strong> - <a >Remove</a></li>
-                <li><strong>ToDo #2</strong> - <a >Remove</a></li>
-                <li><strong>ToDo #3</strong> - <a >Remove</a></li>
+                <li><label htmlFor="todo1" className="inline"><input type="checkbox" id="todo1" name="todo1" /><strong>ToDo #1</strong></label> - <a>Remove</a></li>
+                <li><label htmlFor="todo2" className="inline"><input type="checkbox" id="todo2" name="todo2" /><strong>ToDo #2</strong></label> - <a>Remove</a></li>
+                <li><label htmlFor="todo3" className="inline"><input type="checkbox" id="todo3" name="todo3" /><strong>ToDo #3</strong></label> - <a>Remove</a></li>
             </ul>
         </>
     );
