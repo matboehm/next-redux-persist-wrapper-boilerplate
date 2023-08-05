@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addTodo, selectAllTodos, TodoType} from "@/store/todoSlice";
-import { v4 as uuidv4 } from 'uuid';
+import {addTodo, removeTodo, selectAllTodos, TodoType} from "@/store/todoSlice";
+import {v4 as uuidv4} from 'uuid';
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -18,6 +18,10 @@ export default function Home() {
         dispatch(addTodo(todo));
     }
 
+    const handleRemoveTodo = (id: string) => {
+        dispatch(removeTodo(id));
+    }
+
     return (
         <>
             <h1>Next.js Redux Persist Boilerplate Demo</h1>
@@ -31,10 +35,13 @@ export default function Home() {
             <br/>
             <br/>
             <ul>
-                { todos.map((todo) => {
-                    return <li key={todo.id}><label htmlFor={todo.id} className="inline"><input type="checkbox" id={todo.id} name={todo.id} /><strong>{todo.text}</strong></label> - <a>Remove</a></li>
+                {todos.map((todo) => {
+                    return <li key={todo.id}><label htmlFor={todo.id} className="inline"><input type="checkbox"
+                                                                                                id={todo.id}
+                                                                                                name={todo.id}/><strong>{todo.text}</strong></label> - <a href="#" onClick={() => handleRemoveTodo(todo.id)}>Remove</a>
+                    </li>
                 })}
-         </ul>
+            </ul>
         </>
     );
 }

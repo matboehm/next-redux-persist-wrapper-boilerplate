@@ -19,11 +19,6 @@ const todoSlice = createSlice({
         addTodo(state, action) {
             state.push(action.payload);
         },
-        updateTodo(state, action) {
-            const todos = Array.from(state);
-            const index = todos.findIndex(todo => action.payload.id === todo.id);
-            state.splice(index, 1, action.payload);
-        },
         removeTodo(state, action) {
             const todos = Array.from(state);
             const index = todos.findIndex(todo => action.payload === todo.id);

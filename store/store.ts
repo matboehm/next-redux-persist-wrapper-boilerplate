@@ -10,7 +10,6 @@ const configStore = () => {
     const isServer = typeof window === "undefined";
 
     const rootReducer = combineReducers({
-        // your reducers
         [todoSlice.name]: todoSlice.reducer,
     });
 
@@ -26,7 +25,6 @@ const configStore = () => {
     } else {
         const persistConfig = {
             key: 'root',
-            whiteList: ['jobs'],
             storage,
         };
 
@@ -39,10 +37,9 @@ const configStore = () => {
                     immutableCheck: false,
                     serializableCheck: false,
                 }),
-            devTools: true,
         });
 
-        (store as any).__persistor = persistStore(store); // Nasty hack
+        (store as any).__persistor = persistStore(store);
 
         return store;
     }
