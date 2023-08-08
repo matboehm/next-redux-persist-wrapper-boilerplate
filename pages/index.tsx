@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addTodo, removeTodo, selectAllTodos, TodoType} from "@/store/todoSlice";
+import {addTodo, removeTodo, selectAllTodos, TodoType, toggleCompleted} from "@/store/todoSlice";
 import {v4 as uuidv4} from 'uuid';
 
 export default function Home() {
@@ -11,8 +11,9 @@ export default function Home() {
     const handleNewTodo = () => {
         const todo: TodoType = {
             id: uuidv4(),
-            text: todoText,
-            done: false,
+            todo: todoText,
+            completed: false,
+            userId: 1,
         }
 
         dispatch(addTodo(todo));
@@ -20,6 +21,10 @@ export default function Home() {
 
     const handleRemoveTodo = (id: string) => {
         dispatch(removeTodo(id));
+    }
+
+    const handleToggleTodo = (id: string) => {
+        dispatch(toggleCompleted(id));
     }
 
     return (
@@ -36,9 +41,14 @@ export default function Home() {
             <br/>
             <ul>
                 {todos.map((todo) => {
-                    return <li key={todo.id}><label htmlFor={todo.id} className="inline"><input type="checkbox"
-                                                                                                id={todo.id}
-                                                                                                name={todo.id}/><strong>{todo.text}</strong></label> - <a href="#" onClick={() => handleRemoveTodo(todo.id)}>Remove</a>
+                    return <li key={todo.id}>
+                        <label htmlFor={todo.id} className={`inline ${todo.completed ? 'strikethrough' : ''}`}>
+                            <input type="checkbox"
+                                   id={todo.id}
+                                   name={todo.id}
+                                   onChange={() => handleToggleTodo(todo.id)}/>
+                            <strong>{todo.todo}</strong>
+                        </label> - <a href="#" onClick={() => handleRemoveTodo(todo.id)}>Remove</a>
                     </li>
                 })}
             </ul>

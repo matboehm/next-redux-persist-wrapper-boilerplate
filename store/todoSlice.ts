@@ -4,8 +4,9 @@ import {HYDRATE} from "next-redux-wrapper";
 
 export type TodoType  = {
     id: string;
-    text: string;
-    done: boolean;
+    todo: string;
+    completed: boolean;
+    userId: number;
 }
 
 export type TodoState = Array<TodoType>;
@@ -19,12 +20,12 @@ const todoSlice = createSlice({
         addTodo(state, action) {
             state.push(action.payload);
         },
+        toggleCompleted(state, action) {
+            const todo = state.find((todo) => todo.id === action.payload);
+            todo.completed = !todo.completed;
+        },
         removeTodo(state, action) {
-            const todos = Array.from(state);
-            const index = todos.findIndex(todo => action.payload === todo.id);
-            if (index !== -1) {
-                state.splice(index, 1);
-            }
+            return state.filter(todo => todo.id !== action.payload);
         },
     },
     // Reducer for hydrating the state. Needed for next-redux-wrapper
@@ -38,7 +39,7 @@ const todoSlice = createSlice({
     }
 });
 
-export const {addTodo, updateTodo, removeTodo} = todoSlice.actions;
+export const {addTodo, toggleCompleted, removeTodo} = todoSlice.actions;
 
 export const selectAllTodos = (state: AppState) => state.todos;
 

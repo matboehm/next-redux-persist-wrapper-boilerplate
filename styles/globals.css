@@ -10,3 +10,7 @@ button {
 .inline {
     display: inline-block;
 }
+
+.strikethrough {
+text-decoration: line-through;
+}
