@@ -1,5 +1,4 @@
 import Head from "next/head";
-import "../styles/mvp.css"
 import "../styles/globals.css";
 import {PersistGate} from "redux-persist/integration/react";
 import {AppProps} from "next/app";
@@ -16,6 +15,7 @@ export default function App({Component, ...rest}: AppProps) {
                     <Head>
                         <meta name="viewport" content="width=device-width, initial-scale=1" />
                         <title>Next.js Redux Persist Boilerplate</title>
+                        <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
                     </Head>
 
                     <main id="main">
