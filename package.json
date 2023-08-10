@@ -1,13 +1,29 @@
 {
   "name": "next-redux-persist-wrapper-boilerplate",
   "version": "0.1.0",
-  "private": true,
+  "description": "A ready-to-use boilerplate for Next.js 13 with Redux and Redux Persist.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-repo.git"
+  },
+  "author": "Matthias Böhm",
+  "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "keywords": [
+    "next.js",
+    "redux",
+    "redux-persist",
+    "next-redux-wrapper",
+    "boilerplate",
+    "starter",
+    "example"
+  ],
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.2.5",

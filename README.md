@@ -1,34 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Redux Persist Boilerplate
+
+A ready-to-use boilerplate project that demonstrates how to use Next.js 13 with redux, redux-persist and next-redux-wrapper.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Introduction
+
+When looking for a solution to persist a redux store with the latest Next.js version 13, I was unable to find an out-of-the-box solution. There were always pitfalls here and there and after lengthy Google and StackOverflow research, I decided to publish my solution on GitHub for everyone to copy and use.
+
+Inspired by the repository [with-next-redux-wrapper-redux-persist](https://github.com/fazlulkarimweb/with-next-redux-wrapper-redux-persist/tree/master).
+
+## Features
+
+- Latest Next.js version 13
+- Redux for state management with redux toolkit (as recommended by the redux creators)
+- Redux Persist for persistent state storage
+- Next Redux wrapper to connect Redux and Next.js
+- Basic ToDo app as an example
 
 ## Getting Started
 
-First, run the development server:
+To get started with this boilerplate project, follow the steps below:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before you begin, ensure you have the following installed:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js: Make sure you have Node.js installed on your machine.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Installation
 
-## Learn More
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/next-redux-persist-wrapper-boilerplate.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd next-redux-persist-wrapper-boilerplate
+   ```
+3. Install the dependencies:
+   ```sh
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+### Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Once the dependencies are installed, you can run the project using the following command:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```sh
+   npm run dev
+   ```
 
-## Deploy on Vercel
+This will start the development server. Open your web browser and navigate to `http://localhost:3000` to see the app in action.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project makes use of the following technologies and libraries:
+
+- Next.js
+- Redux
+- Redux Persist
+- next-redux-wrapper
+
+## Contributing
+
+Contributions are welcome! To contribute to this project:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request to this repository. 
+
+Please make sure to follow the code of conduct when contributing.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+
+## Contact
+
+If you have any questions or suggestions, feel free to reach out to me:
+
+GitHub: [https://github.com/matboehm](https://github.com/matboehm)
