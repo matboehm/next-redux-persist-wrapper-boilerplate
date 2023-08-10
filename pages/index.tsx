@@ -16,6 +16,8 @@ export default function Home() {
             userId: 1,
         }
 
+        document.getElementById('todo').value = '';
+
         dispatch(addTodo(todo));
     }
 

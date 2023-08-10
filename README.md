@@ -2,19 +2,6 @@
 
 A ready-to-use boilerplate project that demonstrates how to use Next.js 13 with redux, redux-persist and next-redux-wrapper.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-    - [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
 ## Introduction
 
 When looking for a solution to persist a redux store with the latest Next.js version 13, I was unable to find an out-of-the-box solution. There were always pitfalls here and there and after lengthy Google and StackOverflow research, I decided to publish my solution on GitHub for everyone to copy and use.
@@ -28,6 +15,10 @@ Inspired by the repository [with-next-redux-wrapper-redux-persist](https://githu
 - Redux Persist for persistent state storage
 - Next Redux wrapper to connect Redux and Next.js
 - Basic ToDo app as an example
+
+## Preview of the ToDo app
+
+![ToDo Preview Gif](todo.gif)
 
 ## Getting Started
 
